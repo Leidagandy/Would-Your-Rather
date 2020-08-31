@@ -1,5 +1,5 @@
-import { getInitialData } from "../itils/api"
-import { receiveQuestions } from "../actions.questions"
+import { getInitialData } from "../utils/api"
+import { receiveQuestions } from "../actions/questions"
 import { receiveUsers } from "../actions/users"
 
 export function handleInitialData () {
