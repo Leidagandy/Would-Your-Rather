@@ -5,7 +5,7 @@ import "./Login.css";
 
 class Login extends Component {
   state = {
-    value: "Select a user",
+    value: "users",
   };
 
   handleChange = (e) => {
@@ -14,9 +14,40 @@ class Login extends Component {
     });
   };
 
+  // handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   let id="";
+  //   const { value } = this.state;
+  //   const { users } = this.props;
+  //   const userIds = Object.keys(users)
+  //   userIds.forEach(userId => {
+  //     if (users[userId].name === value) {
+  //       id = userId;
+  //     }
+  //   })
+
+  //   const from =
+  //   this.props.location !== undefined && this.props.location.state !== undefined
+  //   ? this.props.location.state.from
+  //   :"/home";
+  //   this.props.dispatch(setAuthedUser(id))
+  //   this.props.history.push(`${from}`)
+     
+  // };
+
   handleSubmit = (e) => {
-    //todo
-  };
+		const userID = this.userID.value;
+		const { dispatch } = this.props;
+
+		e.preventDefault();
+
+		if (userID !== '') {
+			dispatch(setAuthedUser(userID));
+		} else {
+			this.setState({ errorMsg: 'You must choose a username' });
+		}
+	};
+
 
   render() {
     const { users } = this.props;
@@ -58,4 +89,4 @@ class Login extends Component {
 const mapStateToProps = ({ users }) => ({
   users,
 });
-export default connect(mapStateToProps)(Login);
+export default (connect(mapStateToProps)(Login));

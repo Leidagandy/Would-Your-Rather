@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { logoutUser } from "../actions/autheduser"
 import "./Nav.css";
 
 class Nav extends Component {
   handleLogout = () => {
-    //todo
+    const { dispatch } = this.props
+    dispatch(logoutUser())
+    this.props.history.push({
+        pathname:"/login",
+        state: { from: "/home"}
+    })
   };
 
   render() {
@@ -24,17 +30,17 @@ class Nav extends Component {
             <NavLink to="/add">NewQuestion</NavLink>
           </li>
         </ul>
-        {this.props.authedUser && (
+        {/* {this.props.authedUser && ( */}
           <div>
             <button
               type="button"
               className="logout-btn"
-              onClick={this.handleSubmit}
+              onClick={this.handleLogout}
             >
               Log Out
             </button>
           </div>
-        )}
+        {/* )} */}
       </nav>
     );
   }
