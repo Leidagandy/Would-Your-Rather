@@ -6,12 +6,12 @@ import "./Nav.css";
 
 class Nav extends Component {
   handleLogout = () => {
-    const { dispatch } = this.props
-    dispatch(logoutUser())
-    this.props.history.push({
-        pathname:"/login",
-        state: { from: "/home"}
-    })
+    // const { dispatch } = this.props
+    // dispatch(logoutUser())
+    // this.props.history.push({
+    //     pathname:"/login",
+    //     state: { from: "/home"}
+    // })
   };
 
   render() {
