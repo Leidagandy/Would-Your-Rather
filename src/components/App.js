@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import { connect } from "react-redux"
 import { handleInitialData } from "../actions/shared"
-
-
 import "../App.css";
+import NewQuestion from "./NewQuestion"
 
 class App extends Component {
   componentDidMount() {
@@ -14,6 +13,7 @@ class App extends Component {
   return (
     <div className="App">
       <p>hi</p>
+      <NewQuestion />
     </div>
   );
 }
